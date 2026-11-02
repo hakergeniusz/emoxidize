@@ -3,6 +3,6 @@
   "name": "Emoxidize Paste Bridge",
   "description": "D-Bus paste bridge for the Emoxidize emoji picker: receives the selected emoji and pastes it into the focused window via the Mutter clipboard and a virtual keyboard Ctrl+V.",
   "url": "https://github.com/hakergeniusz/emoxidize",
-  "shell-version": ["45", "46", "47", "48", "49"],
+  "shell-version": ["45", "46", "47", "48", "49", "50", "51"],
   "session-modes": ["user", "unlock-dialog"]
 }

@@ -17,9 +17,11 @@ First public beta.
   to tone-capable emojis — plus an **“all”** mode that shows every tone
   variant of each emoji at once.
 - “Paste automatically” via the new GNOME Shell paste bridge
-  (`emoxidize@hakergeniusz`): the selected emoji is pasted into the focused
-  window through the Mutter clipboard and a virtual keyboard Ctrl+V; the
-  Preferences badge reflects bridge presence.
+  (`emoxidize@hakergeniusz`, GNOME Shell 45–51): the selected emoji is pasted
+  into the focused window through the Mutter clipboard and a virtual keyboard
+  Ctrl+V; the Preferences badge reflects bridge presence. The extension is
+  self-hosted (not on extensions.gnome.org): ships in the native packages and
+  as an install script / release zip.
 - Multi-emoji mode with a configurable paste delay (0–1000 ms).
 - GSettings schema `io.github.hakergeniusz.Emoxidize`; all keys apply live,
   including external writes.

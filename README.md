@@ -55,24 +55,36 @@ application identity `io.github.hakergeniusz.Emoxidize`.
 
 ## GNOME Shell paste bridge
 
-`extension/emoxidize@hakergeniusz` is a GNOME Shell (45+) extension that owns
-the bus name `io.github.hakergeniusz.Emoxidize.Extension` and exposes
+`extension/emoxidize@hakergeniusz` is a GNOME Shell (45–51) extension that
+owns the bus name `io.github.hakergeniusz.Emoxidize.Extension` and exposes
 `Paste(s text)`. It stores the emoji in Mutter's global clipboard (so it
 survives the picker exiting) and injects <kbd>Ctrl</kbd>+<kbd>V</kbd> into the
 focused window via Clutter's virtual keyboard, waiting for focus to return to
 a non-picker window first.
 
-Install it for the current user:
+The extension is **self-hosted** — it is not published on
+extensions.gnome.org. Install it one of these ways:
+
+- **Packages**: the Arch, Debian and Fedora packages install it to
+  `/usr/share/gnome-shell/extensions/` (Debian/Fedora as the
+  `gnome-shell-extension-emoxidize` package).
+- **User install**: run `extension/install.sh` from a source checkout or the
+  release zip (copies to `~/.local/share/gnome-shell/extensions/`); remove it
+  again with `extension/uninstall.sh`.
+- **Manual**: copy `extension/emoxidize@hakergeniusz/` to
+  `~/.local/share/gnome-shell/extensions/` (per-user) or
+  `/usr/share/gnome-shell/extensions/` (system-wide).
+
+Then enable it:
 
 ```sh
-mkdir -p ~/.local/share/gnome-shell/extensions
-cp -r extension/emoxidize@hakergeniusz ~/.local/share/gnome-shell/extensions/
 gnome-extensions enable emoxidize@hakergeniusz
-# then log out/in or restart the shell as needed
+# log out/in or restart the shell if it was a fresh install
 ```
 
-The distribution packages install the extension to
-`/usr/share/gnome-shell/extensions/`.
+The Flatpak build does not include the bridge — the shell extension must live
+on the host, so Flatpak users should install it from a release zip or a
+checkout as above.
 
 ## CLI
 

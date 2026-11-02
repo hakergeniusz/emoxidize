@@ -46,22 +46,6 @@
         },
         "generated-cargo-sources.json"
       ]
-    },
-    {
-      "name": "paste-bridge",
-      "buildsystem": "simple",
-      "build-commands": [
-        "install -d /app/share/gnome-shell/extensions/emoxidize@hakergeniusz",
-        "install -m644 extension/emoxidize@hakergeniusz/metadata.json extension/emoxidize@hakergeniusz/extension.js -t /app/share/gnome-shell/extensions/emoxidize@hakergeniusz/"
-      ],
-      "sources": [
-        {
-          "type": "git",
-          "url": "https://github.com/hakergeniusz/emoxidize.git",
-          "tag": "v1.0.0-beta.1",
-          "commit": "PLACEHOLDER_COMMIT_HASH"
-        }
-      ]
     }
   ]
 }

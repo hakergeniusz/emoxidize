@@ -100,11 +100,11 @@ pub fn open(parent: &adw::ApplicationWindow, settings: &gio::Settings) {
 
         let ext_row = adw::ActionRow::builder()
             .title("GNOME Shell Extension")
-            .subtitle("Required for automatic pasting — opens extensions.gnome.org")
+            .subtitle("Ships with the emoxidize packages; install the extension (see the project README) and run: gnome-extensions enable emoxidize@hakergeniusz")
             .build();
         let get_ext = gtk::LinkButton::builder()
-            .label("Get Extension")
-            .uri("https://extensions.gnome.org")
+            .label("Install guide")
+            .uri("https://github.com/hakergeniusz/emoxidize#gnome-shell-paste-bridge")
             .build();
         get_ext.set_valign(gtk::Align::Center);
         ext_row.add_suffix(&get_ext);
