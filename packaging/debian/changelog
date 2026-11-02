@@ -1,0 +1,8 @@
+emoxidize (1.0.0~beta.1-1) unstable; urgency=medium
+
+  * Initial beta release.
+    - Picker with live search, categories, recents, skin tones
+      (including "all tones at once"), configurable columns.
+    - GNOME Shell paste bridge (gnome-shell-extension-emoxidize).
+
+ -- hakergeniusz <hakergeniusz@users.noreply.github.com>  Mon, 02 Nov 2026 20:00:00 +0100

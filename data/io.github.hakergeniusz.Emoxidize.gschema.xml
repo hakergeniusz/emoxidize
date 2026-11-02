@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <enum id="io.github.hakergeniusz.Emoxidize.SkinTone">
+    <value nick="default" value="0"/>
+    <value nick="light" value="1"/>
+    <value nick="medium-light" value="2"/>
+    <value nick="medium" value="3"/>
+    <value nick="medium-dark" value="4"/>
+    <value nick="dark" value="5"/>
+    <value nick="all" value="6"/>
+  </enum>
+  <schema id="io.github.hakergeniusz.Emoxidize" path="/io/github/hakergeniusz/Emoxidize/">
+    <key name="run-in-background" type="b">
+      <default>false</default>
+      <summary>Keep the app running after closing for faster startup</summary>
+      <description>If true, closing the window hides it and the process keeps running; a later launch re-presents the window.</description>
+    </key>
+    <key name="columns" type="i">
+      <default>5</default>
+      <range min="5" max="15"/>
+      <summary>Number of columns in the emoji grid</summary>
+    </key>
+    <key name="skin-tone" enum="io.github.hakergeniusz.Emoxidize.SkinTone">
+      <default>"default"</default>
+      <summary>Default skin tone used for emojis that support it</summary>
+    </key>
+    <key name="paste-on-select" type="b">
+      <default>false</default>
+      <summary>Paste the selected emoji directly into the focused window</summary>
+      <description>Requires the GNOME Shell extension; insensitive while the extension is absent.</description>
+    </key>
+    <key name="multi-emoji" type="b">
+      <default>false</default>
+      <summary>Select multiple emojis consecutively before pasting</summary>
+    </key>
+    <key name="timeout-ms" type="i">
+      <default>0</default>
+      <range min="0" max="1000"/>
+      <summary>Time to wait after the last emoji selection before pasting</summary>
+    </key>
+    <key name="recents" type="as">
+      <default>[]</default>
+      <summary>Internal: mirror of the most-recently-selected emojis</summary>
+      <description>The authoritative store is $XDG_DATA_HOME/emoxidize/recents.txt (most-recent-first, capped at 40 entries); this key mirrors it for integrators and is applied live when written externally.</description>
+    </key>
+  </schema>
+</schemalist>

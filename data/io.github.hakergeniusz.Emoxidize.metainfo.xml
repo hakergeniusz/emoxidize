@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.hakergeniusz.Emoxidize</id>
+  <launchable type="desktop-id">io.github.hakergeniusz.Emoxidize.desktop</launchable>
+  <name>Emoxidize</name>
+  <summary>Single-instance GTK4 emoji picker</summary>
+  <developer_name>hakergeniusz</developer_name>
+  <project_license>MIT</project_license>
+  <metadata_license>MIT</metadata_license>
+  <description>
+    <p>
+      Emoxidize is a fast, single-instance emoji picker built with GTK4 and
+      libadwaita. It presents a searchable grid of all canonical Unicode
+      emojis, grouped into Recents, Smileys, People, Animals, Food, Travel,
+      Activities, Objects, Symbols and Flags, with live search over CLDR
+      names and keywords, skin-tone support and configurable grid columns.
+    </p>
+    <p>
+      Selecting an emoji copies it to the clipboard and dismisses the picker
+      (or keeps it open for consecutive selections in multi-emoji mode).
+    </p>
+  </description>
+  <releases>
+    <release version="1.0.0" date="2026-11-02">
+      <description>
+        <p>Initial release.</p>
+      </description>
+    </release>
+  </releases>
+  <provides>
+    <binary>emoxidize</binary>
+  </provides>
+  <content_rating type="oars-1.1"/>
+  <url type="homepage">https://github.com/hakergeniusz/emoxidize</url>
+  <recommends>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <display_length compare="ge">360</display_length>
+  </recommends>
+</component>

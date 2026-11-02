@@ -1,0 +1,42 @@
+Source: emoxidize
+Section: utils
+Priority: optional
+Maintainer: hakergeniusz <hakergeniusz@users.noreply.github.com>
+Build-Depends:
+ debhelper-compat (= 13),
+ cargo,
+ rustc,
+ libgtk-4-dev (>= 4.12),
+ libadwaita-1-dev (>= 1.4),
+ libglib2.0-dev,
+ desktop-file-utils,
+Standards-Version: 4.6.2
+Homepage: https://github.com/hakergeniusz/emoxidize
+Vcs-Browser: https://github.com/hakergeniusz/emoxidize
+Vcs-Git: https://github.com/hakergeniusz/emoxidize.git
+Rules-Requires-Root: no
+
+Package: emoxidize
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, dconf
+Recommends: gnome-shell-extension-emoxidize | gnome-shell
+Description: single-instance GTK4 emoji picker
+ Emoxidize is a fast, single-instance emoji picker built with GTK4 and
+ libadwaita. It presents a searchable grid of all canonical Unicode
+ emojis grouped into Recents, Smileys, People, Animals, Food, Travel,
+ Activities, Objects, Symbols and Flags, with live search over CLDR
+ names and keywords, skin-tone support (including showing all tones at
+ once) and a configurable grid.
+ .
+ Selecting an emoji copies it to the clipboard; with the optional GNOME
+ Shell paste bridge installed, pasting into the focused window is
+ supported natively.
+
+Package: gnome-shell-extension-emoxidize
+Architecture: all
+Depends: ${misc:Depends}, gnome-shell (>= 45)
+Description: GNOME Shell paste bridge for Emoxidize
+ D-Bus paste bridge: receives the selected emoji from Emoxidize and
+ pastes it into the focused window via the Mutter clipboard and a
+ virtual keyboard Ctrl+V. Enables the "Paste automatically" feature of
+ the Emoxidize picker.

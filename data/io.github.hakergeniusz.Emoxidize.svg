@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Original artwork for Emoxidize, MIT licensed, created for this project.
+     Concept: the picker's emoji grid — four glossy faces on a dusk gradient. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7b5bd6"/>
+      <stop offset="0.55" stop-color="#5840b0"/>
+      <stop offset="1" stop-color="#38256e"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.22"/>
+      <stop offset="0.45" stop-color="#ffffff" stop-opacity="0.05"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="skin" cx="0.36" cy="0.3" r="0.95">
+      <stop offset="0" stop-color="#ffe98f"/>
+      <stop offset="0.55" stop-color="#ffd257"/>
+      <stop offset="1" stop-color="#f5a623"/>
+    </radialGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4a4460"/>
+      <stop offset="1" stop-color="#2b2740"/>
+    </linearGradient>
+  </defs>
+
+  <!-- backdrop -->
+  <rect x="4" y="4" width="120" height="120" rx="30" fill="url(#bg)"/>
+  <rect x="4" y="4" width="120" height="120" rx="30" fill="url(#sheen)"/>
+  <rect x="4.75" y="4.75" width="118.5" height="118.5" rx="29.25"
+        fill="none" stroke="#ffffff" stroke-opacity="0.18" stroke-width="1.5"/>
+
+  <!-- tile plates (the picker grid) -->
+  <g fill="#ffffff" fill-opacity="0.10">
+    <rect x="14" y="14" width="47" height="47" rx="15"/>
+    <rect x="67" y="14" width="47" height="47" rx="15"/>
+    <rect x="14" y="67" width="47" height="47" rx="15"/>
+    <rect x="67" y="67" width="47" height="47" rx="15"/>
+  </g>
+
+  <!-- face 1: happy (top-left) -->
+  <g>
+    <circle cx="37.5" cy="37.5" r="18" fill="url(#skin)" stroke="#d18a00" stroke-width="1.4"/>
+    <circle cx="31" cy="34.5" r="2.7" fill="#4a3505"/>
+    <circle cx="44" cy="34.5" r="2.7" fill="#4a3505"/>
+    <path d="M28.8 42 Q37.5 51.5 46.2 42" fill="none" stroke="#4a3505"
+          stroke-width="2.8" stroke-linecap="round"/>
+  </g>
+
+  <!-- face 2: cool (top-right) -->
+  <g>
+    <circle cx="90.5" cy="37.5" r="18" fill="url(#skin)" stroke="#d18a00" stroke-width="1.4"/>
+    <path d="M80 33.2 Q90.5 30.4 101 33.2" fill="none" stroke="#2b2740" stroke-width="2"/>
+    <rect x="79.2" y="32.2" width="9.6" height="8.4" rx="4" fill="url(#glass)"/>
+    <rect x="92.2" y="32.2" width="9.6" height="8.4" rx="4" fill="url(#glass)"/>
+    <circle cx="82.2" cy="34.4" r="1.5" fill="#a79ecf" fill-opacity="0.95"/>
+    <circle cx="95.2" cy="34.4" r="1.5" fill="#a79ecf" fill-opacity="0.95"/>
+    <path d="M82.5 46.5 Q90.5 53.5 98.5 46.5" fill="none" stroke="#4a3505"
+          stroke-width="2.8" stroke-linecap="round"/>
+  </g>
+
+  <!-- face 3: laughing (bottom-left) -->
+  <g>
+    <circle cx="37.5" cy="90.5" r="18" fill="url(#skin)" stroke="#d18a00" stroke-width="1.4"/>
+    <path d="M27.5 86.5 Q31 83 34.5 86.5" fill="none" stroke="#4a3505"
+          stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M40.5 86.5 Q44 83 47.5 86.5" fill="none" stroke="#4a3505"
+          stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M28.5 92.5 Q37.5 104.5 46.5 92.5 Z" fill="#4a3505"/>
+    <path d="M33.5 96.8 Q37.5 100.6 41.5 96.8 Q40 99.4 37.5 99.4 Q35 99.4 33.5 96.8 Z"
+          fill="#ff8a80"/>
+  </g>
+
+  <!-- face 4: heart eyes (bottom-right) -->
+  <g>
+    <circle cx="90.5" cy="90.5" r="18" fill="url(#skin)" stroke="#d18a00" stroke-width="1.4"/>
+    <path d="M83.5 84.6 c -1.5 -1.7 -4 -0.4 -4 1.5 c 0 2 2.5 3.7 4 4.9 c 1.5 -1.2 4 -2.9 4 -4.9 c 0 -1.9 -2.5 -3.2 -4 -1.5 Z" fill="#e6467c"/>
+    <path d="M97.5 84.6 c -1.5 -1.7 -4 -0.4 -4 1.5 c 0 2 2.5 3.7 4 4.9 c 1.5 -1.2 4 -2.9 4 -4.9 c 0 -1.9 -2.5 -3.2 -4 -1.5 Z" fill="#e6467c"/>
+    <path d="M81.5 96.5 Q90.5 103 99.5 96.5" fill="none" stroke="#4a3505"
+          stroke-width="2.8" stroke-linecap="round"/>
+  </g>
+</svg>

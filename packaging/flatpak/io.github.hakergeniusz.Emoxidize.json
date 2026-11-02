@@ -1,0 +1,67 @@
+{
+  "id": "io.github.hakergeniusz.Emoxidize",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "48",
+  "sdk": "org.gnome.Sdk",
+  "sdk-extensions": ["org.freedesktop.Sdk.Extension.rust-stable"],
+  "command": "emoxidize",
+  "finish-args": [
+    "--share=ipc",
+    "--socket=fallback-x11",
+    "--socket=wayland",
+    "--device=dri",
+    "--share=network",
+    "--talk-name=org.freedesktop.Notifications",
+    "--own-name=io.github.hakergeniusz.Emoxidize"
+  ],
+  "build-options": {
+    "append-path": "/usr/lib/sdk/rust-stable/bin",
+    "env": {
+      "CARGO_HOME": "/run/build/emoxidize/cargo-home",
+      "RUST_BACKTRACE": "1"
+    }
+  },
+  "modules": [
+    {
+      "name": "emoxidize",
+      "buildsystem": "simple",
+      "build-commands": [
+        "cargo --version",
+        "cargo build --offline --release",
+        "install -Dm755 target/release/emoxidize -t /app/bin/",
+        "install -Dm644 data/io.github.hakergeniusz.Emoxidize.desktop -t /app/share/applications/",
+        "install -Dm644 data/io.github.hakergeniusz.Emoxidize.metainfo.xml -t /app/share/metainfo/",
+        "install -Dm644 data/io.github.hakergeniusz.Emoxidize.svg /app/share/icons/hicolor/scalable/apps/io.github.hakergeniusz.Emoxidize.svg",
+        "install -Dm644 data/io.github.hakergeniusz.Emoxidize-symbolic.svg /app/share/icons/hicolor/symbolic/apps/io.github.hakergeniusz.Emoxidize-symbolic.svg",
+        "for size in 16 24 32 48 64 128 256; do install -Dm644 data/icons/hicolor/${size}x${size}/apps/io.github.hakergeniusz.Emoxidize.png /app/share/icons/hicolor/${size}x${size}/apps/io.github.hakergeniusz.Emoxidize.png; done",
+        "install -Dm644 data/io.github.hakergeniusz.Emoxidize.gschema.xml /app/share/glib-2.0/schemas/",
+        "glib-compile-schemas /app/share/glib-2.0/schemas"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/hakergeniusz/emoxidize.git",
+          "tag": "v1.0.0-beta.1",
+          "commit": "PLACEHOLDER_COMMIT_HASH"
+        },
+        "generated-cargo-sources.json"
+      ]
+    },
+    {
+      "name": "paste-bridge",
+      "buildsystem": "simple",
+      "build-commands": [
+        "install -d /app/share/gnome-shell/extensions/emoxidize@hakergeniusz",
+        "install -m644 extension/emoxidize@hakergeniusz/metadata.json extension/emoxidize@hakergeniusz/extension.js -t /app/share/gnome-shell/extensions/emoxidize@hakergeniusz/"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/hakergeniusz/emoxidize.git",
+          "tag": "v1.0.0-beta.1",
+          "commit": "PLACEHOLDER_COMMIT_HASH"
+        }
+      ]
+    }
+  ]
+}

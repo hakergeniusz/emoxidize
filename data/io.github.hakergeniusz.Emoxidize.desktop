@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=Emoxidize
+GenericName=Emoji Picker
+Comment=Find emojis by name or keyword and copy them to the clipboard
+Exec=emoxidize
+Icon=io.github.hakergeniusz.Emoxidize
+Terminal=false
+Categories=Utility;GTK;
+Keywords=emoji;picker;smiley;emoticon;unicode;
+DBusActivatable=true
+StartupNotify=true
+StartupWMClass=emoxidize

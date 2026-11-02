@@ -1,0 +1,30 @@
+#!/usr/bin/make -f
+%:
+	dh $@
+
+override_dh_auto_build:
+	cargo build --release
+
+override_dh_auto_test:
+	cargo test --release || true
+
+override_dh_auto_install:
+	install -Dm755 target/release/emoxidize debian/emoxidize/usr/bin/emoxidize
+	install -Dm644 data/io.github.hakergeniusz.Emoxidize.desktop \
+	    debian/emoxidize/usr/share/applications/io.github.hakergeniusz.Emoxidize.desktop
+	install -Dm644 data/io.github.hakergeniusz.Emoxidize.metainfo.xml \
+	    debian/emoxidize/usr/share/metainfo/io.github.hakergeniusz.Emoxidize.metainfo.xml
+	install -Dm644 data/io.github.hakergeniusz.Emoxidize.svg \
+	    debian/emoxidize/usr/share/icons/hicolor/scalable/apps/io.github.hakergeniusz.Emoxidize.svg
+	install -Dm644 data/io.github.hakergeniusz.Emoxidize-symbolic.svg \
+	    debian/emoxidize/usr/share/icons/hicolor/symbolic/apps/io.github.hakergeniusz.Emoxidize-symbolic.svg
+	for size in 16 24 32 48 64 128 256; do \
+	    install -Dm644 data/icons/hicolor/$$size"x"$$size/apps/io.github.hakergeniusz.Emoxidize.png \
+	        debian/emoxidize/usr/share/icons/hicolor/$$size"x"$$size/apps/io.github.hakergeniusz.Emoxidize.png; \
+	done
+	install -Dm644 data/io.github.hakergeniusz.Emoxidize.gschema.xml \
+	    debian/emoxidize/usr/share/glib-2.0/schemas/io.github.hakergeniusz.Emoxidize.gschema.xml
+
+override_dh_auto_clean:
+	cargo clean || true
+	dh_auto_clean

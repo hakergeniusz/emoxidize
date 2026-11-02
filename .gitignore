@@ -1,0 +1,7 @@
+/target
+/data/gschemas.compiled
+/tools/emoji-test.txt
+/tools/annotations-en.json
+# The reference build tree of the observed application — clean-room evidence,
+# never part of this repository.
+/emojify/

@@ -1,0 +1,19 @@
+[package]
+name = "emoxidize"
+version = "1.0.0-beta.1"
+edition = "2021"
+license = "MIT"
+description = "Single-instance GTK4 emoji picker (clean-room Rust implementation)"
+authors = ["hakergeniusz"]
+
+[[bin]]
+name = "emoxidize"
+path = "src/main.rs"
+
+[dependencies]
+gtk = { version = "0.11", package = "gtk4", features = ["v4_12"] }
+libadwaita = { version = "0.9", package = "libadwaita", features = ["v1_4"] }
+
+[profile.release]
+lto = true
+strip = true
