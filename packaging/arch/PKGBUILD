@@ -11,30 +11,30 @@ license=(MIT)
 depends=(gtk4 libadwaita dconf)
 makedepends=(cargo clang)
 provides=(emoji-picker)
-source=("$pkgname::https://github.com/hakergeniusz/emoxidize/archive/refs/tags/v1.0.0-beta.1.tar.gz")
+source=("$pkgname-1.0.0-beta.1.tar.gz::https://github.com/hakergeniusz/emoxidize/archive/refs/tags/v1.0.0-beta.1.tar.gz")
 sha256sums=('SKIP')  # replace with the release tarball checksum
 options=(!lto)      # LTO is configured per-profile in Cargo.toml
 
 prepare() {
-    cd "$srcdir/$pkgname"
+    cd "$srcdir/emoxidize-1.0.0-beta.1"
     export RUSTUP_TOOLCHAIN=stable
     cargo fetch --locked --target "$(rustc -vV | sed -n 's/host: //p')"
 }
 
 build() {
-    cd "$srcdir/$pkgname"
+    cd "$srcdir/emoxidize-1.0.0-beta.1"
     export RUSTUP_TOOLCHAIN=stable
     export CARGO_TARGET_DIR=target
     cargo build --frozen --release
 }
 
 check() {
-    cd "$srcdir/$pkgname"
+    cd "$srcdir/emoxidize-1.0.0-beta.1"
     cargo test --frozen --release
 }
 
 package() {
-    cd "$srcdir/$pkgname"
+    cd "$srcdir/emoxidize-1.0.0-beta.1"
     install -Dm755 target/release/emoxidize -t "$pkgdir/usr/bin/"
     install -Dm644 data/io.github.hakergeniusz.Emoxidize.desktop \
         "$pkgdir/usr/share/applications/io.github.hakergeniusz.Emoxidize.desktop"
