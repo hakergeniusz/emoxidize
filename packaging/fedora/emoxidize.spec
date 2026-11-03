@@ -13,7 +13,7 @@ URL:            https://github.com/hakergeniusz/emoxidize
 # GitHub names tag tarballs with dashes (v1.0.0-beta.1); keep in sync with Version:
 Source0:        %{url}/archive/refs/tags/v1.0.0-beta.1/%{name}-1.0.0-beta.1.tar.gz
 # --with prebuilt skips the cargo build and packages a binary provided in
-# SOURCES as %{name}-bin-%{_arch} (used to produce the release aarch64 rpm
+# SOURCES as emoxidize-bin-<arch> (used to produce the release aarch64 rpm
 # from the cross-compiled binary without an emulated build).
 %bcond_with prebuilt
 
@@ -21,12 +21,9 @@ ExclusiveArch:  x86_64 aarch64
 %if %{with prebuilt}
 Source1:        %{name}-bin-%{_arch}
 %endif
-BuildRequires:  rust-packaging
 BuildRequires:  cargo
-BuildRequires:  (crate(gtk4/default) >= 0.11 with rust-packaging)
 BuildRequires:  pkgconfig(gtk4) >= 4.12
 BuildRequires:  pkgconfig(libadwaita-1) >= 1.4
-BuildRequires:  systemd-rpm-macros
 
 %global _description %{expand:
 Emoxidize is a fast, single-instance emoji picker built with GTK4 and
