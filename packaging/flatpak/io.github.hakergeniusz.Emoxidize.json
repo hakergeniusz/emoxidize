@@ -1,7 +1,7 @@
 {
   "id": "io.github.hakergeniusz.Emoxidize",
   "runtime": "org.gnome.Platform",
-  "runtime-version": "48",
+  "runtime-version": "49",
   "sdk": "org.gnome.Sdk",
   "sdk-extensions": ["org.freedesktop.Sdk.Extension.rust-stable"],
   "command": "emoxidize",
@@ -42,7 +42,7 @@
           "type": "git",
           "url": "https://github.com/hakergeniusz/emoxidize.git",
           "tag": "v1.0.0-beta.1",
-          "commit": "PLACEHOLDER_COMMIT_HASH"
+          "commit": "d27f82f58db310371a01d9e967283690d6f782b7"
         },
         "generated-cargo-sources.json"
       ]
