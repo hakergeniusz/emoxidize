@@ -17,7 +17,7 @@
   "build-options": {
     "append-path": "/usr/lib/sdk/rust-stable/bin",
     "env": {
-      "CARGO_HOME": "/run/build/emoxidize/cargo-home",
+      "CARGO_HOME": "/run/build/emoxidize/cargo",
       "RUST_BACKTRACE": "1"
     }
   },
