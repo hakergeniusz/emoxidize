@@ -16,6 +16,10 @@ Source0:        %{url}/archive/refs/tags/v1.0.0-beta.1/%{name}-1.0.0-beta.1.tar.
 # SOURCES as emoxidize-bin-<arch> (used to produce the release aarch64 rpm
 # from the cross-compiled binary without an emulated build).
 %bcond_with prebuilt
+%if %{with prebuilt}
+# the packaged binary is already stripped; the auto debug packages would be empty
+%define debug_package %{nil}
+%endif
 
 ExclusiveArch:  x86_64 aarch64
 %if %{with prebuilt}
