@@ -3,7 +3,7 @@ name = "emoxidize"
 version = "1.0.0-beta.1"
 edition = "2021"
 license = "MIT"
-description = "Single-instance GTK4 emoji picker (clean-room Rust implementation)"
+description = "Single-instance GTK4 emoji picker (clean-room Rust implementation of Emojify)"
 authors = ["hakergeniusz"]
 
 [[bin]]

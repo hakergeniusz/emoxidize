@@ -27,7 +27,8 @@ First public beta.
   including external writes.
 - CLI: `--gapplication-service` service mode, help output, graceful handling
   of unknown options, exit 1 without a display.
-- Packages: Arch PKGBUILD, Debian packaging (picker + shell extension),
-  Fedora RPM spec and a Flatpak manifest.
+- Packages: Arch PKGBUILD, Debian packaging (picker + shell extension,
+  amd64 + arm64), Fedora RPM spec (x86_64 + aarch64) and a Flatpak manifest;
+  release assets ship all four plus the Flatpak source bundle.
 
 [1.0.0-beta.1]: https://github.com/hakergeniusz/emoxidize/releases/tag/v1.0.0-beta.1

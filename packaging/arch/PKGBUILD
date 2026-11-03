@@ -1,10 +1,10 @@
 # Maintainer: hakergeniusz <hakergeniusz@users.noreply.github.com>
-# Clean-room Rust GTK4 emoji picker — see SPEC.md in the source tree.
+# Clean-room Rust implementation of the Emojify emoji picker — see SPEC.md.
 
 pkgname=emoxidize
 pkgver=1.0.0beta.1
 pkgrel=1
-pkgdesc="Single-instance GTK4/libadwaita emoji picker (clean-room Rust implementation)"
+pkgdesc="Single-instance GTK4/libadwaita emoji picker (clean-room Rust implementation of Emojify)"
 arch=(x86_64 aarch64)
 url="https://github.com/hakergeniusz/emoxidize"
 license=(MIT)

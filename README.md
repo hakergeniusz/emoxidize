@@ -1,6 +1,6 @@
 # Emoxidize
 
-**Emoxidize — MIT, clean-room implementation based on black-box observation of an emoji picker, spec in SPEC.md. App ID `io.github.hakergeniusz.Emoxidize`. Not derived from original source.**
+**Emoxidize — MIT, clean-room Rust implementation of the Emojify emoji picker, spec in SPEC.md. App ID `io.github.hakergeniusz.Emoxidize`. Not derived from original source.**
 
 Emoxidize is a single-instance GTK4/libadwaita emoji picker written in Rust. It
 implements the behaviour documented in [SPEC.md](SPEC.md) (§3–§11) under the new
@@ -114,16 +114,24 @@ GSETTINGS_SCHEMA_DIR=$PWD/data ./target/debug/emoxidize
 
 ## Packages
 
+Prebuilt packages for **amd64/x86_64 and arm64/aarch64** are attached to the
+[release page](https://github.com/hakergeniusz/emoxidize/releases/tag/v1.0.0-beta.1):
+Debian `.deb`, Fedora `.rpm` (each with the `gnome-shell-extension-emoxidize`
+bridge package), the Arch `PKGBUILD` (works on both arches) and a Flatpak
+source bundle that builds on either architecture.
+
+To build from source instead:
+
 | Target | Location | Build |
 |---|---|---|
 | Arch Linux | `packaging/arch/PKGBUILD` | `cd packaging/arch && makepkg -f` |
-| Debian/Ubuntu | `packaging/debian/` | copy to repo root → `dpkg-buildpackage -us -uc -b` |
-| Fedora/RPM | `packaging/fedora/emoxidize.spec` | `rpmbuild -ba packaging/fedora/emoxidize.spec` |
+| Debian/Ubuntu | `packaging/debian/` | copy to repo root → `dpkg-buildpackage -us -uc -b` (cross: `dpkg-buildpackage -us -uc -B -aarm64` with `libgtk-4-dev:arm64` installed) |
+| Fedora/RPM | `packaging/fedora/emoxidize.spec` | `rpmbuild -ba packaging/fedora/emoxidize.spec` (cross/prebuilt: `rpmbuild -ba --with prebuilt --target aarch64`) |
 | Flatpak | `packaging/flatpak/io.github.hakergeniusz.Emoxidize.json` | `packaging/flatpak/generate-sources.sh` then `flatpak-builder --force-clean build packaging/flatpak/io.github.hakergeniusz.Emoxidize.json` |
 
 Debian builds two packages: `emoxidize` and
-`gnome-shell-extension-emoxidize`. The Fedora spec likewise has an optional
-`bridge` subpackage. The Flatpak manifest vendors cargo dependencies via
+`gnome-shell-extension-emoxidize`. The Fedora spec likewise has the `bridge`
+subpackage. The Flatpak manifest vendors cargo dependencies via
 `generate-sources.sh` (needs `flatpak-cargo-generator.py`).
 
 To install system-wide from source: copy `target/release/emoxidize` to
