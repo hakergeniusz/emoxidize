@@ -36,7 +36,7 @@
         "install -Dm644 data/io.github.hakergeniusz.Emoxidize.svg /app/share/icons/hicolor/scalable/apps/io.github.hakergeniusz.Emoxidize.svg",
         "install -Dm644 data/io.github.hakergeniusz.Emoxidize-symbolic.svg /app/share/icons/hicolor/symbolic/apps/io.github.hakergeniusz.Emoxidize-symbolic.svg",
         "for size in 16 24 32 48 64 128 256; do install -Dm644 data/icons/hicolor/${size}x${size}/apps/io.github.hakergeniusz.Emoxidize.png /app/share/icons/hicolor/${size}x${size}/apps/io.github.hakergeniusz.Emoxidize.png; done",
-        "install -Dm644 data/io.github.hakergeniusz.Emoxidize.gschema.xml /app/share/glib-2.0/schemas/",
+        "install -Dm644 data/io.github.hakergeniusz.Emoxidize.gschema.xml /app/share/glib-2.0/schemas/io.github.hakergeniusz.Emoxidize.gschema.xml",
         "glib-compile-schemas /app/share/glib-2.0/schemas"
       ],
       "sources": [
