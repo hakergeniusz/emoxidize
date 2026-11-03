@@ -3,7 +3,9 @@
   "runtime": "org.gnome.Platform",
   "runtime-version": "49",
   "sdk": "org.gnome.Sdk",
-  "sdk-extensions": ["org.freedesktop.Sdk.Extension.rust-stable"],
+  "sdk-extensions": [
+    "org.freedesktop.Sdk.Extension.rust-stable"
+  ],
   "command": "emoxidize",
   "finish-args": [
     "--share=ipc",
@@ -44,10 +46,7 @@
           "tag": "v1.0.0-beta.1",
           "commit": "d27f82f58db310371a01d9e967283690d6f782b7"
         },
-        {
-          "type": "file",
-          "path": "generated-cargo-sources.json"
-        }
+        "generated-cargo-sources.json"
       ]
     }
   ]
