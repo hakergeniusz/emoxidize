@@ -519,7 +519,9 @@ impl Picker {
         for (_, i) in scored {
             self.push_toned(EMOJIS[i].ch, &mut items);
         }
-        self.populate(items, true);
+        // Keep focus in the entry while results refresh; grabbing the first
+        // cell here would strand Backspace/Ctrl+A on a grid button.
+        self.populate(items, false);
         // The category pill deliberately stays untouched while searching.
     }
 
@@ -690,20 +692,29 @@ impl Picker {
 }
 
 /// Insert a character at the editable's cursor and leave the caret after it.
+/// A pending selection (Ctrl+A, shift-extended) is replaced, as in a plain
+/// text editor.
 fn entry_insert_char(entry: &gtk::SearchEntry, ch: char) {
     let text = entry.text().to_string();
-    let pos = entry.property::<i32>("cursor-position").max(0) as usize;
-    let byte_pos = text
-        .char_indices()
-        .nth(pos)
-        .map(|(b, _)| b)
-        .unwrap_or(text.len());
+    let cursor = entry.property::<i32>("cursor-position").max(0) as usize;
+    let bound = entry.property::<i32>("selection-bound-pos").max(0) as usize;
+    let (start, end) = if cursor == bound {
+        (cursor, cursor)
+    } else {
+        (cursor.min(bound), cursor.max(bound))
+    };
+    let byte = |idx: usize| {
+        text.char_indices()
+            .nth(idx)
+            .map(|(b, _)| b)
+            .unwrap_or(text.len())
+    };
     let mut updated = String::with_capacity(text.len() + ch.len_utf8());
-    updated.push_str(&text[..byte_pos]);
+    updated.push_str(&text[..byte(start)]);
     updated.push(ch);
-    updated.push_str(&text[byte_pos..]);
+    updated.push_str(&text[byte(end)..]);
     entry.set_text(&updated);
-    entry.set_position((pos + 1) as i32);
+    entry.set_position((start + 1) as i32);
 }
 
 fn load_css() {
