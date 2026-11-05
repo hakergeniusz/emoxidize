@@ -13,7 +13,14 @@ import Gio from 'gi://Gio';
 import St from 'gi://St';
 import Clutter from 'gi://Clutter';
 
-import {Extension} from 'resource:///org/gnome/Shell/Extensions/js/extensions.js';
+// The Extension base class moved between the shell's gresource trees in
+// GNOME 49; try the current location first, then the pre-49 one.
+let Extension;
+try {
+    ({Extension} = await import('resource:///org/gnome/shell/extensions/extension.js'));
+} catch {
+    ({Extension} = await import('resource:///org/gnome/Shell/Extensions/js/extensions.js'));
+}
 
 const BUS_NAME = 'io.github.hakergeniusz.Emoxidize.Extension';
 const OBJECT_PATH = '/io/github/hakergeniusz/Emoxidize';
